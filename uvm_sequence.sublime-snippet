@@ -1,0 +1,26 @@
+<snippet>
+<name>UVM seuence_item</name>
+<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_sequence #(${2:uvm_sequence_item}, ${3:REQ});
+    `uvm_object_utils(${1})
+
+    function new(string name = "${1}");
+        super.new(name);
+    endfunction
+
+    virtual task body();
+        $0
+        `uvm_do(req);
+        // start_item();
+        // // sequencer.wait_for_grant(prior)
+        // // parent_seq.pre_do(1)
+        // finish_item();
+        // // parent_seq.mid_do(item)
+        // // sequencer.send_request(item)
+        // // sequencer.wait_for_item_done()
+        // // parent_seq.post_do(item)
+    endtask : body
+
+endclass]]></content>
+<tabTrigger>uvm_sequence</tabTrigger>
+<scope>source.systemverilog</scope>
+</snippet>

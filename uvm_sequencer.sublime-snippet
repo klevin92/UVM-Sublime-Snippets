@@ -1,0 +1,15 @@
+<snippet>
+<name>UVM sequencer</name>
+<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends #(${2:uvm_sequence_item}, ${3:REQ}) uvm_sequencer;
+
+    `uvm_component_utils(${1})
+    $0
+
+    function new(string name = "${1}", uvm_component parent=null);
+        super.new(name, parent);
+    endfunction
+
+endclass : ${1}]]></content>
+<tabTrigger>uvm_sequencer</tabTrigger>
+<scope>source.systemverilog</scope>
+</snippet>

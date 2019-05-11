@@ -1,0 +1,27 @@
+<snippet>
+<name>UVM monitor</name>
+<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_monitor;
+    `uvm_component_utils(${1})
+
+    virtual $2_if $2_vif;
+    $2_transaction m_txn;
+    uvm_analysis_port #(${3:uvm_sequence_item}) ${4:m_aport};
+
+    function new(string name = "${1}", uvm_component parent=null);
+        super.new(name, parent);
+        $4 = new("$4", this);
+    endfunction
+
+    virtual function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+    endfunction
+
+    virtual task run_phase(uvm_phase phase);
+        super.run_phase(phase);
+        $4.write(m_txn);
+    endtask
+
+endclass]]></content>
+<tabTrigger>uvm_monitor</tabTrigger>
+<scope>source.systemverilog</scope>
+</snippet>

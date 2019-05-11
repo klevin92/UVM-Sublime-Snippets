@@ -1,0 +1,32 @@
+<snippet>
+<name>UVM scoreboard</name>
+<content><![CDATA[
+// `uvm_analysis_imp_decl()
+class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_scoreboard;
+    `uvm_component_utils(${1})
+
+    uvm_analysis_imp #(${2:uvm_sequence_item}, $1) $3;
+    $0
+
+    function new(string name = "${1}", uvm_component parent=null);
+        super.new(name, parent);
+    endfunction
+
+    virtual task run_phase(uvm_phase phase);
+        super.run_phase(phase);
+        phase.raise_objection(this);
+        phase.drop_objection(this);
+    endtask
+
+    virtual function void write ($2 data);
+        `uvm_info(get_type_name(), $sformatf("Data received = 0x%0h", data), UVM_MEDIUM)
+    endfunction
+
+    virtual function void check_phase (uvm_phase phase);
+
+    endfunction
+
+endclass : ${1}]]></content>
+<tabTrigger>uvm_scoreboard</tabTrigger>
+<scope>source.systemverilog</scope>
+</snippet>

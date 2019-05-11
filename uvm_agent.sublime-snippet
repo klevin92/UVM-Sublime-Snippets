@@ -1,0 +1,23 @@
+<snippet>
+<name>UVM agent</name>
+<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_agent;
+    `uvm_component_utils(${1})
+
+    $0
+    
+    function new(string name = "${1}", uvm_component parent=null);
+        super.new(name, parent);
+    endfunction
+
+    virtual function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+    endfunction
+
+    virtual function void connect_phase(uvm_phase phase);
+        super.connect_phase(phase);
+    endfunction
+
+endclass : ${1}]]></content>
+<tabTrigger>uvm_agent</tabTrigger>
+<scope>source.systemverilog</scope>
+</snippet>
