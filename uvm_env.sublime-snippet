@@ -19,14 +19,14 @@
         m_bd_agent = $2_bd_agent::type_id::create("$2_bd_agent",this);
         m_sb = $2_scoreboard::type_id::create("$2_scoreboard",this);
         m_agent.m_cfg = m_cfg;
-    endfunction
+    endfunction : build_phase
 
     virtual function void connect_phase(uvm_phase phase);
         m_agent.m_driver.drvn_to_sb.connect(m_sb.from_driver);
         m_agent.m_driver.mtrd_to_sb.connect(m_sb.from_monitor);
     endfunction : connect_phase
 
-endclass]]></content>
+endclass : ${1}]]></content>
 <tabTrigger>uvm_env</tabTrigger>
 <scope>source.systemverilog</scope>
 </snippet>

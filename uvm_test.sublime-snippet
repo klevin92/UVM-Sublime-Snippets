@@ -1,6 +1,6 @@
 <snippet>
 <name>UVM test</name>
-<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_test ;
+<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_test;
     `uvm_component_utils(${1})
 
     ${2}_env m_env;
@@ -9,27 +9,27 @@
 
     function new(string name = "${2}_test", uvm_component parent=null);
         super.new(name, parent);
-    endfunction
+    endfunction : new
 
     virtual function void build_phase(uvm_phase phase);
         m_env = ${2}_env::type_id::create("${2}_env", this);
         m_cfg = ${2}_cfg::type_id::create("${2}_cfg", this);
         if (!uvm_config_db #(virtual ${2}_if)::get(this, "", "${2}_vif", m_cfgs.${2}_vif))
             `uvm_error(get_type_name(), "Failed to get BFM")
-    endfunction
+    endfunction : build_phase
 
     virtual function void end_of_elaboration_phase(uvm_phase phase);
         uvm_top.print_topology();
-        if (!\$value\$plusargs("timeout_clks=%d", timeout_clks)) begin 
+        if (!\$value\$plusargs("timeout_clks=%d", timeout_clks)) begin
             timeout_clks = 500000;
             `uvm_info(get_type_name(), \$sformatf("Illegal timeout value. Setting %0d as the timeout", timeout_clks), UVM_LOW)
         end else if(timeout_clks == 0) begin
             timeout_clks = 500000;
             `uvm_info(get_type_name(), \$sformatf("Got 0 as the timeout. Setting %0d as the timeout", timeout_clks), UVM_LOW)
         end else begin
-            `uvm_info(get_type_name(), \$sformatf("Setting %0d as the timeout", timeout_clks), UVM_LOW)            
+            `uvm_info(get_type_name(), \$sformatf("Setting %0d as the timeout", timeout_clks), UVM_LOW)
         end
-    endfunction
+    endfunction : end_of_elaboration_phase
 
     virtual task run_phase(uvm_phase phase);
         string seq_names[\$];
@@ -78,9 +78,9 @@
         ///////////////////////////////////////////////////
         phase.drop_objection(this, "Ending sequences");
         ///////////////////////////////////////////////////
-                     
-    endtask
-endclass]]></content>
+
+    endtask : run_phase
+endclass : ${1}]]></content>
 <tabTrigger>uvm_test</tabTrigger>
 <scope>source.systemverilog</scope>
 </snippet>

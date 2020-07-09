@@ -7,7 +7,7 @@
 
     function new(string name = "${1}", uvm_component parent=null);
         super.new(name, parent);
-    endfunction
+    endfunction : new
 
 endclass : ${1}]]></content>
 <tabTrigger>uvm_sequencer</tabTrigger>

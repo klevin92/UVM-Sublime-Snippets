@@ -10,21 +10,21 @@ class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_scoreboard;
 
     function new(string name = "${1}", uvm_component parent=null);
         super.new(name, parent);
-    endfunction
+    endfunction : new
 
     virtual task run_phase(uvm_phase phase);
         super.run_phase(phase);
         phase.raise_objection(this);
         phase.drop_objection(this);
-    endtask
+    endtask  run_phase
 
     virtual function void write ($2 data);
         `uvm_info(get_type_name(), $sformatf("Data received = 0x%0h", data), UVM_MEDIUM)
-    endfunction
+    endfunction : write
 
     virtual function void check_phase (uvm_phase phase);
 
-    endfunction
+    endfunction : check_phase
 
 endclass : ${1}]]></content>
 <tabTrigger>uvm_scoreboard</tabTrigger>

@@ -1,6 +1,6 @@
 <snippet>
 <name>UVM seuence_item</name>
-<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_sequence_item ;
+<content><![CDATA[class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:name}} extends uvm_sequence_item;
     `uvm_object_utils(${1})
 
     // rand logic [3:0] .. ;
@@ -15,9 +15,9 @@
 
     function new(string name = "${1}");
        super.new(name);
-    endfunction
+    endfunction : new
 
-endclass]]></content>
+endclass : ${1}]]></content>
 <tabTrigger>uvm_sequence_item</tabTrigger>
 <scope>source.systemverilog</scope>
 </snippet>

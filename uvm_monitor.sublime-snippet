@@ -10,18 +10,18 @@
     function new(string name = "${1}", uvm_component parent=null);
         super.new(name, parent);
         $4 = new("$4", this);
-    endfunction
+    endfunction : new
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-    endfunction
+    endfunction : build_phase
 
     virtual task run_phase(uvm_phase phase);
         super.run_phase(phase);
         $4.write(m_txn);
-    endtask
+    endtask : run_phase
 
-endclass]]></content>
+endclass : ${1}]]></content>
 <tabTrigger>uvm_monitor</tabTrigger>
 <scope>source.systemverilog</scope>
 </snippet>

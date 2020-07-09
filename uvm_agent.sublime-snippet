@@ -4,18 +4,18 @@
     `uvm_component_utils(${1})
 
     $0
-    
+
     function new(string name = "${1}", uvm_component parent=null);
         super.new(name, parent);
-    endfunction
+    endfunction : new
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-    endfunction
+    endfunction : build_phase
 
     virtual function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
-    endfunction
+    endfunction : connect_phase
 
 endclass : ${1}]]></content>
 <tabTrigger>uvm_agent</tabTrigger>

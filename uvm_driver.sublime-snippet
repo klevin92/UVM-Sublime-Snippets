@@ -10,11 +10,11 @@
 
     function new(string name = "${1}", uvm_component parent=null);
         super.new(name, parent);
-    endfunction
+    endfunction : new
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-    endfunction
+    endfunction : build_phase
 
     virtual function void end_of_elaboration_phase(uvm_phase phase);
         super.end_of_elaboration_phase(phase);
@@ -37,7 +37,7 @@
         `uvm_info(get_type_name(), "Received a new sequence item", UVM_LOW)
         // Do something with the item
         seq_item_port.item_done();
-    endtask
+    endtask : run_phase
 
 endclass : ${1}]]></content>
 <tabTrigger>uvm_driver</tabTrigger>
