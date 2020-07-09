@@ -1,0 +1,7 @@
+<snippet>
+    <name>type_id</name>
+    <content><![CDATA[type_id::create("$1", $2);
+]]></content>
+    <tabTrigger>type_id</tabTrigger>
+    <scope>source.systemverilog</scope>
+</snippet>

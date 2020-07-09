@@ -1,0 +1,24 @@
+<snippet>
+    <name>UVM Reg Class</name>
+    <content><![CDATA[class ${1:reg_name} extends uvm_reg;
+
+    `uvm_object_utils(${1})
+
+    rand uvm_reg_field ${2:field_name};
+
+    function new(string name = "${1}");
+        super.new(name, 32, UVM_NO_COVERAGE);
+    endfunction : new
+
+    virtual function void build();
+        ${2} = uvm_reg_field::type_id::create("${2}",,get_full_name());
+
+        ${2}.configure(this, <size>, <lsb>, <access>, 0, 0, 1, 1, 0);
+    endfunction : build
+endclass : ${1}
+
+]]></content>
+    <tabTrigger>uvm_reg</tabTrigger>
+    <scope>source.systemverilog</scope>
+    <description>UVM register class</description>
+</snippet>
